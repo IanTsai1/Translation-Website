@@ -3,7 +3,6 @@
 . for class
 
 */
-
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
     color: blue;
     background-color: lightgray;
@@ -31,7 +30,7 @@
     background-position: 14px 12px;
     background-repeat: no-repeat;
     font-size: 16px;
-    /*padding: 14px 20px 12px 45px;*/
+    padding: 14px 20px 12px 45px;
     border: none;
     border-bottom: 1px solid #ddd;
   }
@@ -66,6 +65,49 @@
     display: block;
   }
 
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown1 {
+    position: relative;
+    display: inline-block;
+  }
+
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-menu1 {
+    display: none;
+    position: absolute;
+    /*background-color: #f6f6f6;*/
+    background-color: white;
+    border: 1px solid white;
+    z-index: 1;
+    min-width: 230px;
+    max-height: 280px;
+    overflow-y: scroll;
+  }
+
+  /* Links inside the dropdown */
+  .dropdown-menu1 a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  #myInput1 {
+    box-sizing: border-box;
+    background-image: url('searchicon.png');
+    background-position: 14px 12px;
+    background-repeat: no-repeat;
+    font-size: 16px;
+    padding: 14px 20px 12px 45px;
+    border: none;
+    border-bottom: 1px solid #ddd;
+  }
+
+  /* The search field when it gets focus/clicked on */
+  #myInput1:focus {outline: 3px solid #ddd;}
+
+
+
 .btn-file {
     position: relative;
     overflow: hidden;
@@ -84,4 +126,27 @@
     outline: none;
     cursor: inherit;
     display: block;
+}
+
+#innerfilecontainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
+  background-color: #F0F0F0;
+  height: 14vh;
+  margin-top: -100px;
+  transform: translateX(50%);
+  border-radius: 10px; /* Adjust this value to control the amount of curvature */
+  padding: 10px; /* Add padding for spacing */
+}
+
+#buttoncontainer {
+  width: 600px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*transform: translateY(35px);*/
+  transform: translate(-53%, 50%);
 }

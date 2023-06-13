@@ -63,7 +63,7 @@
             </div>
 
             <div class="col">
-                <ul class="nav nav-tabs" style="padding-left:0px" >
+                <ul class="nav nav-tabs" style="padding-left:10px" >
                     <li class="nav-item">
                         <a class="nav-link language-bar" aria-current="page" href="#">English</a>
                     </li>
@@ -92,14 +92,40 @@
             </div>
         </div>
     </div>
-    <div class="container-md-fluid border justify-content-center" style="margin-left:0; margin-right:0; height:300px;">
-        <div class="row">
-            <div class="container my-5" style="height:80px; width: 500px; background-color: #F0F0F0; opacity: 20;">
-                <i class="fa fa-file-lines my-4 my-icon-file" style="font-size: 2.2em;"></i>
-                
+    <div class="container-md-fluid border d-flex justify-content-center align-items-center" style="height:300px">
+        <div class="row no-gutters" id="innerfilecontainer">
+            <div class="col-md-1">
+                <i class="fa fa-file-lines my-3 my-icon-file" style="font-size: 2.2em;"></i>
+            </div>
+            <div class="col" style="margin-top:10px">
+                <div class="row" style="margin-bottom: 0;">
+                    <p><span id="filename" style="font-weight: bold;"></span></p>
+                </div>
+                <div class="row" style="margin-top: -20px;">
+                    <p><span id="filesize"></span></p>
+                </div>
+            </div>
+            <div class="col-md-1">
+                <span class="btn" onclick="handleButtonClick()">
+                    <i class="fa fa-xmark" style="font-size: 2em;"></i>
+                </span>
             </div>
         </div>
+        <div class="row" id="buttoncontainer">
+            <div class="col-md-1"></div>
+            <div class="col"></div>
+            <div class="col-md-1"> <button type="button" class="btn btn-primary">Translate</button></div>
+        </div>
     </div>
+    <script>
+        const get_filename = localStorage.getItem("selectedFileName");
+        const filename = document.getElementById("filename");
+        const get_filesize = localStorage.getItem("selectedFileSize");
+        const filesize = document.getElementById("filesize");
+        filename.textContent = get_filename;
+        filesize.textContent = get_filesize;
+
+    </script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
     <script src="script.js"></script>
 </body>

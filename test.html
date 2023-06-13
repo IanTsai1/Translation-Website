@@ -10,9 +10,27 @@
         <span class="btn btn-primary btn btn-file">
             Browse your computer <input type="file" id="file_name" onchange="handleFileSelect(event)">
         </span>
-        <h1 id="file_name_display"></h1>
-        <h1 id="file_size_display"></h1>
-        
+
+        <div class="container-md-fluid border" style="height:300px">
+            <div class="row no-gutters" style="width:500px;">
+                <div class="container my-5" id="filecontainer">
+                    <!--width: 500px; -->
+                    <div class="col">
+                        <i class="fa fa-file-lines my-4 my-icon-file" style="font-size: 2.2em;"></i>
+                    </div>
+                    <div class="col">
+                        <div class="row">
+                            <p><span id="filename" style="font-weight: bold;"></span></p>
+                        </div>
+                        <div class="row">
+                            <p><span id="filesize" style="font-weight: bold;"></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
         <script src="test.js"></script>
     </body>
 </html>

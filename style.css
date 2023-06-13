@@ -1,3 +1,9 @@
+/*
+# for id
+. for class
+
+*/
+
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
     color: blue;
     background-color: lightgray;
@@ -60,4 +66,22 @@
     display: block;
   }
 
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
 
+.btn-file input[type=file] {
+    position: absolute; /*fills the whole button*/
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    cursor: inherit;
+    display: block;
+}

@@ -7,21 +7,12 @@
     <script src="https://kit.fontawesome.com/55cf989cad.js" crossorigin="anonymous"></script>
 </head>
     <body>
-        <!--
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle language-bar dropbtn dropdown" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false" button onclick="myFunction()"> More </a>
-                            <div id="myDropdown" class="dropdown-content">
-                                <input type="text" placeholder="Search..." id="myInput" onkeyup="filterFunction()">
-                                <a href="#about">About</a>
-                                <a href="#base">Base</a>
-                                <a href="#blog">Blog</a>
-                                <a href="#contact">Contact</a>
-                                <a href="#custom">Custom</a>
-                                <a href="#support">Support</a>
-                                <a href="#tools">Tools</a>
-                            </div>
-                    </li>
-                    -->
-
+        <span class="btn btn-primary btn btn-file">
+            Browse your computer <input type="file" id="file_name" onchange="handleFileSelect(event)">
+        </span>
+        <h1 id="file_name_display"></h1>
+        <h1 id="file_size_display"></h1>
+        
+        <script src="test.js"></script>
     </body>
 </html>

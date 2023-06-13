@@ -1,16 +1,3 @@
-/* When the user clicks on the button,
-toggle between hiding and showing the dropdown content */
-
-/*
-function toggleDropdown(event) {
-    var dropdown = document.getElementById("myDropdown");
-    if (event.target.classList.contains('dropdown-content')){
-        dropdown.classList.toggle('show');
-    } else {
-        dropdown.classList.remove('show');
-    }
-}*/
-
 document.addEventListener('click', function (event) {
     var dropdown = document.querySelector('.dropdown-menu');
     if (!event.target.closest('.dropdown')) {
@@ -33,5 +20,10 @@ function filterFunction() {
         }
     }
 }
+
+document.getElementById("file_name").onclick = function () {
+    //location.href = "www.yoursite.com";
+    window.location.href = "after_file.html";
+};
 
 

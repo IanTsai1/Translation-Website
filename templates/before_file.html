@@ -4,16 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+
     <script src="https://kit.fontawesome.com/55cf989cad.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/node_modules/bootstrap/dist/css/bootstrap.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-bottom: 0.5px solid rgba(220, 220, 220, 0.5); background-color: white;">
         <div class="container-fluid"> <!--change if you want to center navbar or not-->
             <a class="navbar-brand" href="#"> <!--href allows pgae to return to top-->
-                <img src="/Images/ChatGPT_logo.svg.png" alt="" width="30" height="30">
+                <img src="{{url_for('static', filename='ChatGPT_logo.svg.png')}}" alt="" width="30" height="30">
                 GPT Translator
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -215,7 +216,7 @@
             </div>
         </div>
     </div>
-    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
-    <script src="script.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/node_modules/bootstrap/dist/js/bootstrap.bundle.js') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='script.js') }}">
 </body>
 </html>

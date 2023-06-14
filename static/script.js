@@ -46,12 +46,10 @@ function filterFunction1() {
 
 
 document.getElementById("file_name").onclick = function () {
-    //location.href = "www.yoursite.com";
     window.location.href = "after_file.html";
 };
 
 function handleButtonClick() {
-    // Add your desired code or functionality here
     window.location.href = "before_file.html";
 }
 
@@ -68,4 +66,46 @@ function front_file(event){
 function text_file(event){
     window.location.href = 'site.html';
 }
+
+
+function selectLang(event) {
+  //let translationType;
+  let selectedLanguage = String(event.target.id);
+  /*
+  if(selectedLanguage.includes("from")){
+    translationType = "original_lang";
+    selectedLanguage = selectedLanguage.slice(5);
+  }
+  else{
+    translationType = "translatedto_lang";
+    selectedLanguage = selectedLanguage.slice(3);
+  }
+
+  let data = {};
+  data[translationType] = selectedLanguage;*/
+
+  // Make a fetch request to send the selected language to the server
+  fetch('http://127.0.0.1:5000/language', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({lang:selectedLanguage})
+  })
+    .then(response => {
+      if (response.ok) {
+        console.log('Language selection sent successfully!');
+        // Do something with the response if needed
+      } else {
+        console.error('Error sending language selection.');
+      }
+    })
+    .catch(error => {
+      console.error('Error sending language selection:', error);
+    });
+}
+
+
+
+
 

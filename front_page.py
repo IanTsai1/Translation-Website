@@ -18,9 +18,8 @@ def next_path():
     if "text" in request.form:
         return render_template('site.html') #change to redirect?
     elif "file" in request.form:
-        return render_template('before_file.html')
+        return redirect(url_for("before_file.index"))
     return render_template('site.html')
-
 
 
 @app_front_page.route("/language", methods=['GET','POST'])
@@ -33,7 +32,11 @@ def language():
     return render_template('site.html')
 
 
-
+@app_front_page.route("/before_translatate", methods=['GET','POST'])
+def getBeforeTranslate():
+    text = str(request.json.get("beforeTranslateText"))
+    data["beforeTranslateText"] = text
+    return redirect(request.url)
 
 
 

@@ -71,19 +71,6 @@ function text_file(event){
 function selectLang(event) {
   //let translationType;
   let selectedLanguage = String(event.target.id);
-  /*
-  if(selectedLanguage.includes("from")){
-    translationType = "original_lang";
-    selectedLanguage = selectedLanguage.slice(5);
-  }
-  else{
-    translationType = "translatedto_lang";
-    selectedLanguage = selectedLanguage.slice(3);
-  }
-
-  let data = {};
-  data[translationType] = selectedLanguage;*/
-
   // Make a fetch request to send the selected language to the server
   fetch('http://127.0.0.1:5000/language', {
     method: 'POST',
@@ -102,6 +89,31 @@ function selectLang(event) {
     })
     .catch(error => {
       console.error('Error sending language selection:', error);
+    });
+}
+
+function getBeforeTranslate(event){
+  var textarea = document.getElementById("before_translate");
+  var text = textarea.value;
+
+  // Make a fetch request to send the selected language to the server
+  fetch('http://127.0.0.1:5000/before_translatate', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({beforeTranslateText:text})
+  })
+    .then(response => {
+      if (response.ok) {
+        console.log('Before translated text sent successfully!');
+        // Do something with the response if needed
+      } else {
+        console.error('Error sending text.');
+      }
+    })
+    .catch(error => {
+      console.error('Error sending text:', error);
     });
 }
 

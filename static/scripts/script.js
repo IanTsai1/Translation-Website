@@ -81,7 +81,7 @@ function selectLang(event) {
   //let translationType;
   let selectedLanguage = String(event.target.id);
   // Make a fetch request to send the selected language to the server
-  fetch('http://127.0.0.1:5000/language', {
+  fetch('/language', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -103,15 +103,17 @@ function selectLang(event) {
 
 function getBeforeTranslate(event){
   var textarea = document.getElementById("before_translate");
-  var text = textarea.value;
+  var before_trans = textarea.value;
+
+  var after_trans = document.getElementById("after_translate1");
 
   // Make a fetch request to send the selected language to the server
-  fetch('http://127.0.0.1:5000/before_translatate', {
+  fetch('/before_translate', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({beforeTranslateText:text})
+    body: JSON.stringify({beforeTranslateText:before_trans})
   })
     .then(response => {
       if (response.ok) {
@@ -124,7 +126,42 @@ function getBeforeTranslate(event){
     .catch(error => {
       console.error('Error sending text:', error);
     });
+
+    fetch('/before_translate')
+    .then(response => response.text())
+    .then(text => (after_trans.innerHTML = text));
 }
+
+/*
+function getText(event){
+  var textarea = document.getElementById("from_detected_language");
+  var text = textarea.value;
+  //const text = event.target.value;
+
+  fetch('/before_translate', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({beforeTranslateText:text})
+    })
+    .then(response => {
+      if (response.ok) {
+        console.log('Before translated text sent successfully!');
+        // Do something with the response if needed
+      } else {
+        console.error('Error sending text.');
+      }
+    })
+    .catch(error => {
+      console.error('Error sending text:', error);
+    });
+    fetch('/detected-language')
+    .then(response => response.text())
+    .then(text => (textarea.innerHTML = text));
+}
+*/
+
 
 
 

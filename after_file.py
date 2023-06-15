@@ -14,8 +14,8 @@ def next_path():
            return redirect(url_for("before_file.index"))
      elif "cancel" in request.form:
           return redirect(url_for("before_file.index"))
-     return redirect(request.url)
+     return render_template("after_file.html")
+
 @app_after_file.route("/translate",methods=['GET','POST'])
 def translate():
-     print("NEW NEW TEST!")
      return render_template("after_file.html")

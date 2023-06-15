@@ -8,13 +8,13 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/node_modules/bootstrap/dist/css/bootstrap.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/script.js') }}"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-bottom: 0.5px solid rgba(220, 220, 220, 0.5); background-color: white;">
         <div class="container-fluid"> <!--change if you want to center navbar or not-->
             <a class="navbar-brand" href="#"> <!--href allows pgae to return to top-->
-                <img src="{{url_for('static', filename='ChatGPT_logo.svg.png')}}" alt="" width="30" height="30">
+                <img src="{{url_for('static', filename='images/ChatGPT_logo.svg.png')}}" alt="" width="30" height="30">
                 GPT Translator
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" onClick="window.location.reload();">

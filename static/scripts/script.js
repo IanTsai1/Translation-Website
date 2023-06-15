@@ -56,8 +56,17 @@ function handleButtonClick() {
 function handleFileSelect(event) {
     const file = event.target.files[0]; // Get the selected file
     localStorage.setItem("selectedFileName", file.name);
-    localStorage.setItem("selectedFileSize", Math.round(file.size/1000) + " KB");
-    window.location.href = 'after_file.html';
+    /*
+      Math.round((file.size/1000)*10)/10
+    */
+    var file_size = file.size/1000;
+    if(file_size < 1){
+      localStorage.setItem("selectedFileSize", Math.round((file.size/1000)*10)/10 + " KB");
+    }
+    else{
+      localStorage.setItem("selectedFileSize", Math.round(file.size/1000) + " KB");
+    }
+
   }
 
 function front_file(event){

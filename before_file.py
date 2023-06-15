@@ -11,7 +11,6 @@ def index():
 
 @app_before_file.route("/files",methods=['GET','POST'])
 def next_path():
-    print("HELLO")
     if "text" in request.form:
         return redirect(url_for("front_page.index"))
     elif "file" in request.form:

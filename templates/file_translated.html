@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
     <script src="https://kit.fontawesome.com/55cf989cad.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/node_modules/bootstrap/dist/css/bootstrap.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script src="{{ url_for('static', filename='scripts/script.js') }}"></script>
+    <script type="text/javascript">
+        setInterval(percent_updater, 1000);  // run `updater()` every 1000ms (1s)
+    </script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light" style="border-bottom: 0.5px solid rgba(220, 220, 220, 0.5); background-color: white;">
@@ -25,7 +27,7 @@
     </nav>
     <ul class="nav nav-pills mx-3" id="pills-tab" role="tablist">
         <li class="nav-item" role="presentation">
-            <form method="post" action={{url_for("before_file.next_path")}}>
+            <form method="post" action={{url_for("after_file.next_path")}}>
                 <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="submit" role="tab" aria-controls="pills-profile" aria-selected="false" name="text">
                     <i class="fas fa-language fa-xl mx-0.5 my-icon-language"></i>
                     Text
@@ -33,13 +35,12 @@
             </form>
         </li>
         <li class="nav-item" role="presentation">
-            <form method="post" action={{url_for("before_file.next_path")}}>
+            <form method="post" action={{url_for("after_file.next_path")}}>
                 <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="submit" role="tab" aria-controls="pills-contact" aria-selected="false" name="file">
                     <i class="fa-regular fa-file-lines mx-0.5 my-icon-file"></i>
                     Documents
                 </button>
             </form>
-
         </li>
     </ul>
     <div class="container-fluid" style="margin-left:0; margin-right: 0;">
@@ -208,21 +209,34 @@
             </div>
         </div>
     </div>
-    <div class="container-md-fluid border justify-content-center" >
-        <div class="row" style="width:100%">
-            <div class="col border-primary text-center" style="height:300px;">
-                <p></p>
-                <p></p>
-                <h1 class="display-6" style="font-weight: 450; font-size:28px;">Choose a document</h1>
-                <p><small>Upload a .txt or .pdf</small></p>
-                <form method="post" action={{url_for("before_file.next_path")}} enctype = "multipart/form-data">
-                    <button class="btn btn-primary btn btn-file"> <!--handleFileSelect(event)-->
-                        Browse your computer <input type="file" id="file_name" accept=".txt,.pdf" onchange="handleFileSelect(event);this.form.submit();" name="upload_complete">
-                    </button>
-                </form>
+    <div class="container-md-fluid border justify-content-center align-items-center" style="height:300px">
+        <p></p>
+        <p></p>
+        <div class="row" id="translated-row">
+            <form>
+                <div class="form-group">
+                    <textarea class="form-control" placeholder="Translation" disabled="disabled" id="translated" rows="9"></textarea>
+                </div>
+            </form>
+        </div>
+        <p></p>
+        <p></p>
+        <p></p>
+        <div class="row">
+            <div class="progress">
+                <div id="percent-bar" class="progress-bar"></div>
             </div>
         </div>
     </div>
-    <script src="{{ url_for('static', filename='styles/node_modules/bootstrap/dist/js/bootstrap.bundle.js') }}"></script>
+    <script>
+        const get_filename = localStorage.getItem("selectedFileName");
+        const filename = document.getElementById("filename");
+        const get_filesize = localStorage.getItem("selectedFileSize");
+        const filesize = document.getElementById("filesize");
+        filename.textContent = get_filename;
+        filesize.textContent = get_filesize;
+    </script>
+        <script src="{{ url_for('static', filename='styles/node_modules/bootstrap/dist/js/bootstrap.bundle.js') }}">
+    </script>
 </body>
 </html>

@@ -46,162 +46,161 @@
             <div class="col">
                 <ul class="nav nav-tabs">
                     <li class="nav-item">
-                      <a class="nav-link from-language-bar" aria-current="page" href="#">Detected Language</a>
+                        <a class="nav-link language-bar" aria-current="page" type="button" id="from_detected_language" onclick="fromLang(event)">Detected Language</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link from-language-bar" aria-current="page" href="#">English</a>
+                        <a class="nav-link language-bar" aria-current="page" type="button" id="from_english" onclick="fromLang(event)">English</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link from-language-bar" aria-current="page" href="#">Spanish</a>
+                        <a class="nav-link language-bar" aria-current="page" type="button" id="from_spanish" onclick="fromLang(event)">Spanish</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle language-bar" id="dropdownMenuLink" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">More</a>
-                          <ul id="myDropdown" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <ul id="myDropdown" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                             <li><input type="text" placeholder="Search..." style="padding: 20px 16px;" id="myInput" onkeyup="filterFunction()"  autocomplete="off"></li>
-                              <li><a class="dropdown-item" href="#afrikaans">Afrikaans</a></li>
-                              <li><a class="dropdown-item" href="#albanian">Albanian</a></li>
-                              <li><a class="dropdown-item" href="#arabic">Arabic</a></li>
-                              <li><a class="dropdown-item" href="#armenian">Armenian</a></li>
-                              <li><a class="dropdown-item" href="#azerbaijani">Azerbaijani</a></li>
-                              <li><a class="dropdown-item" href="#belarusian">Belarusian</a></li>
-                              <li><a class="dropdown-item" href="#bengali">Bengali</a></li>
-                              <li><a class="dropdown-item" href="#bulgarian">Bulgarian</a></li>
-                              <li><a class="dropdown-item" href="#burmese">Burmese</a></li>
-                              <li><a class="dropdown-item" href="#catalan">Catalan</a></li>
-                              <li><a class="dropdown-item" href="#chinese">Chinese</a></li>
-                              <li><a class="dropdown-item" href="#croatian">Croatian</a></li>
-                              <li><a class="dropdown-item" href="#czech">Czech</a></li>
-                              <li><a class="dropdown-item" href="#danish">Danish</a></li>
-                              <li><a class="dropdown-item" href="#dutch">Dutch</a></li>
-                              <li><a class="dropdown-item" href="#estonian">Estonian</a></li>
-                              <li><a class="dropdown-item" href="#filipino">Filipino</a></li>
-                              <li><a class="dropdown-item" href="#finnish">Finnish</a></li>
-                              <li><a class="dropdown-item" href="#french">French</a></li>
-                              <li><a class="dropdown-item" href="#georgian">Georgian</a></li>
-                              <li><a class="dropdown-item" href="#german">German</a></li>
-                              <li><a class="dropdown-item" href="#greek">Greek</a></li>
-                              <li><a class="dropdown-item" href="#hebrew">Hebrew</a></li>
-                              <li><a class="dropdown-item" href="#hindi">Hindi</a></li>
-                              <li><a class="dropdown-item" href="#hungarian">Hungarian</a></li>
-                              <li><a class="dropdown-item" href="#icelandic">Icelandic</a></li>
-                              <li><a class="dropdown-item" href="#indonesian">Indonesian</a></li>
-                              <li><a class="dropdown-item" href="#italian">Italian</a></li>
-                              <li><a class="dropdown-item" href="#japanese">Japanese</a></li>
-                              <li><a class="dropdown-item" href="#kazakh">Kazakh</a></li>
-                              <li><a class="dropdown-item" href="#korean">Korean</a></li>
-                              <li><a class="dropdown-item" href="#kyrgyz">Kyrgyz</a></li>
-                              <li><a class="dropdown-item" href="#latvian">Latvian</a></li>
-                              <li><a class="dropdown-item" href="#lithuanian">Lithuanian</a></li>
-                              <li><a class="dropdown-item" href="#macedonian">Macedonian</a></li>
-                              <li><a class="dropdown-item" href="#malay">Malay</a></li>
-                              <li><a class="dropdown-item" href="#malayalam">Malayalam</a></li>
-                              <li><a class="dropdown-item" href="#maltese">Maltese</a></li>
-                              <li><a class="dropdown-item" href="#mongolian">Mongolian</a></li>
-                              <li><a class="dropdown-item" href="#nepali">Nepali</a></li>
-                              <li><a class="dropdown-item" href="#norwegian">Norwegian</a></li>
-                              <li><a class="dropdown-item" href="#persian">Persian</a></li>
-                              <li><a class="dropdown-item" href="#polish">Polish</a></li>
-                              <li><a class="dropdown-item" href="#portuguese">Portuguese</a></li>
-                              <li><a class="dropdown-item" href="#romanian">Romanian</a></li>
-                              <li><a class="dropdown-item" href="#russian">Russian</a></li>
-                              <li><a class="dropdown-item" href="#serbian">Serbian</a></li>
-                              <li><a class="dropdown-item" href="#slovak">Slovak</a></li>
-                              <li><a class="dropdown-item" href="#slovenian">Slovenian</a></li>
-                              <li><a class="dropdown-item" href="#swahili">Swahili</a></li>
-                              <li><a class="dropdown-item" href="#swedish">Swedish</a></li>
-                              <li><a class="dropdown-item" href="#tamil">Tamil</a></li>
-                              <li><a class="dropdown-item" href="#telugu">Telugu</a></li>
-                              <li><a class="dropdown-item" href="#thai">Thai</a></li>
-                              <li><a class="dropdown-item" href="#turkish">Turkish</a></li>
-                              <li><a class="dropdown-item" href="#ukrainian">Ukrainian</a></li>
-                              <li><a class="dropdown-item" href="#urdu">Urdu</a></li>
-                              <li><a class="dropdown-item" href="#uzbek">Uzbek</a></li>
-                              <li><a class="dropdown-item" href="#vietnamese">Vietnamese</a></li>
-                              <li><a class="dropdown-item" href="#welsh">Welsh</a></li>
-                              <li><a class="dropdown-item" href="#yiddish">Yiddish</a></li>
-                              <li><a class="dropdown-item" href="#zulu">Zulu</a></li>
-                          </ul>
-                      </li>
+                            <li><a class="dropdown-item" id="from_afrikaans" onclick="fromLang(event)">Afrikaans</a></li>
+                            <li><a class="dropdown-item" id="from_albanian" onclick="fromLang(event)">Albanian</a></li>
+                            <li><a class="dropdown-item" id="from_arabic" onclick="fromLang(event)">Arabic</a></li>
+                            <li><a class="dropdown-item" id="from_armenian" onclick="fromLang(event)">Armenian</a></li>
+                            <li><a class="dropdown-item" id="from_azerbaijani" onclick="fromLang(event)">Azerbaijani</a></li>
+                            <li><a class="dropdown-item" id="from_belarusian" onclick="fromLang(event)">Belarusian</a></li>
+                            <li><a class="dropdown-item" id="from_bengali" onclick="fromLang(event)">Bengali</a></li>
+                            <li><a class="dropdown-item" id="from_bulgarian" onclick="fromLang(event)">Bulgarian</a></li>
+                            <li><a class="dropdown-item" id="from_burmese" onclick="fromLang(event)">Burmese</a></li>
+                            <li><a class="dropdown-item" id="from_catalan" onclick="fromLang(event)">Catalan</a></li>
+                            <li><a class="dropdown-item" id="from_chinese" onclick="fromLang(event)">Chinese</a></li>
+                            <li><a class="dropdown-item" id="from_croatian" onclick="fromLang(event)">Croatian</a></li>
+                            <li><a class="dropdown-item" id="from_czech" onclick="fromLang(event)">Czech</a></li>
+                            <li><a class="dropdown-item" id="from_danish" onclick="fromLang(event)">Danish</a></li>
+                            <li><a class="dropdown-item" id="from_dutch" onclick="fromLang(event)">Dutch</a></li>
+                            <li><a class="dropdown-item" id="from_estonian" onclick="fromLang(event)">Estonian</a></li>
+                            <li><a class="dropdown-item" id="from_filipino" onclick="fromLang(event)">Filipino</a></li>
+                            <li><a class="dropdown-item" id="from_finnish" onclick="fromLang(event)">Finnish</a></li>
+                            <li><a class="dropdown-item" id="from_french" onclick="fromLang(event)">French</a></li>
+                            <li><a class="dropdown-item" id="from_georgian" onclick="fromLang(event)">Georgian</a></li>
+                            <li><a class="dropdown-item" id="from_german" onclick="fromLang(event)">German</a></li>
+                            <li><a class="dropdown-item" id="from_greek" onclick="fromLang(event)">Greek</a></li>
+                            <li><a class="dropdown-item" id="from_hebrew" onclick="fromLang(event)">Hebrew</a></li>
+                            <li><a class="dropdown-item" id="from_hindi" onclick="fromLang(event)">Hindi</a></li>
+                            <li><a class="dropdown-item" id="from_hungarian" onclick="fromLang(event)">Hungarian</a></li>
+                            <li><a class="dropdown-item" id="from_icelandic" onclick="fromLang(event)">Icelandic</a></li>
+                            <li><a class="dropdown-item" id="from_indonesian" onclick="fromLang(event)">Indonesian</a></li>
+                            <li><a class="dropdown-item" id="from_italian" onclick="fromLang(event)">Italian</a></li>
+                            <li><a class="dropdown-item" id="from_japanese" onclick="fromLang(event)">Japanese</a></li>
+                            <li><a class="dropdown-item" id="from_kazakh" onclick="fromLang(event)">Kazakh</a></li>
+                            <li><a class="dropdown-item" id="from_korean" onclick="fromLang(event)">Korean</a></li>
+                            <li><a class="dropdown-item" id="from_kyrgyz" onclick="fromLang(event)">Kyrgyz</a></li>
+                            <li><a class="dropdown-item" id="from_latvian" onclick="fromLang(event)">Latvian</a></li>
+                            <li><a class="dropdown-item" id="from_lithuanian" onclick="fromLang(event)">Lithuanian</a></li>
+                            <li><a class="dropdown-item" id="from_macedonian" onclick="fromLang(event)">Macedonian</a></li>
+                            <li><a class="dropdown-item" id="from_malay" onclick="fromLang(event)">Malay</a></li>
+                            <li><a class="dropdown-item" id="from_malayalam" onclick="fromLang(event)">Malayalam</a></li>
+                            <li><a class="dropdown-item" id="from_maltese" onclick="fromLang(event)">Maltese</a></li>
+                            <li><a class="dropdown-item" id="from_mongolian" onclick="fromLang(event)">Mongolian</a></li>
+                            <li><a class="dropdown-item" id="from_nepali" onclick="fromLang(event)">Nepali</a></li>
+                            <li><a class="dropdown-item" id="from_norwegian" onclick="fromLang(event)">Norwegian</a></li>
+                            <li><a class="dropdown-item" id="from_persian" onclick="fromLang(event)">Persian</a></li>
+                            <li><a class="dropdown-item" id="from_polish" onclick="fromLang(event)">Polish</a></li>
+                            <li><a class="dropdown-item" id="from_portuguese" onclick="fromLang(event)">Portuguese</a></li>
+                            <li><a class="dropdown-item" id="from_romanian" onclick="fromLang(event)">Romanian</a></li>
+                            <li><a class="dropdown-item" id="from_russian" onclick="fromLang(event)">Russian</a></li>
+                            <li><a class="dropdown-item" id="from_serbian" onclick="fromLang(event)">Serbian</a></li>
+                            <li><a class="dropdown-item" id="from_slovak" onclick="fromLang(event)">Slovak</a></li>
+                            <li><a class="dropdown-item" id="from_slovenian" onclick="fromLang(event)">Slovenian</a></li>
+                            <li><a class="dropdown-item" id="from_swahili" onclick="fromLang(event)">Swahili</a></li>
+                            <li><a class="dropdown-item" id="from_swedish" onclick="fromLang(event)">Swedish</a></li>
+                            <li><a class="dropdown-item" id="from_tamil" onclick="fromLang(event)">Tamil</a></li>
+                            <li><a class="dropdown-item" id="from_telugu" onclick="fromLang(event)">Telugu</a></li>
+                            <li><a class="dropdown-item" id="from_thai" onclick="fromLang(event)">Thai</a></li>
+                            <li><a class="dropdown-item" id="from_turkish" onclick="fromLang(event)">Turkish</a></li>
+                            <li><a class="dropdown-item" id="from_ukrainian" onclick="fromLang(event)">Ukrainian</a></li>
+                            <li><a class="dropdown-item" id="from_urdu" onclick="fromLang(event)">Urdu</a></li>
+                            <li><a class="dropdown-item" id="from_uzbek" onclick="fromLang(event)">Uzbek</a></li>
+                            <li><a class="dropdown-item" id="from_vietnamese" onclick="fromLang(event)">Vietnamese</a></li>
+                            <li><a class="dropdown-item" id="from_welsh" onclick="fromLang(event)">Welsh</a></li>
+                            <li><a class="dropdown-item" id="from_yiddish" onclick="fromLang(event)">Yiddish</a></li>
+                            <li><a class="dropdown-item" id="from_zulu" onclick="fromLang(event)">Zulu</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
             <div class="col-md-1 g-3 d-flex justify-content-center" style="width:1.5%">
                 <i class="fas fa-arrows-rotate fa-xl"></i>
             </div>
-
             <div class="col">
-                <ul class="nav nav-tabs" style="padding-left:10px" >
+                <ul class="nav nav-tabs" style="padding-left:0px" >
                     <li class="nav-item">
-                        <a class="nav-link language-bar" aria-current="page" href="#">English</a>
+                        <a class="nav-link language-bar" aria-current="page" type="button" id="to_english" onclick="toLang(event)">English</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link language-bar" aria-current="page" href="#">Spanish</a>
+                        <a class="nav-link language-bar" aria-current="page" type="button" id="to_spanish" onclick="toLang(event)">Spanish</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle language-bar" id="dropdownMenuLink1" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">More</a>
                         <ul id="myDropdown1" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                          <li><input type="text" placeholder="Search..." style="padding: 20px 16px;" id="myInput1" onkeyup="filterFunction1()"></li>
-                            <li><a class="dropdown-item" href="#afrikaans">Afrikaans</a></li>
-                            <li><a class="dropdown-item" href="#albanian">Albanian</a></li>
-                            <li><a class="dropdown-item" href="#arabic">Arabic</a></li>
-                            <li><a class="dropdown-item" href="#armenian">Armenian</a></li>
-                            <li><a class="dropdown-item" href="#azerbaijani">Azerbaijani</a></li>
-                            <li><a class="dropdown-item" href="#belarusian">Belarusian</a></li>
-                            <li><a class="dropdown-item" href="#bengali">Bengali</a></li>
-                            <li><a class="dropdown-item" href="#bulgarian">Bulgarian</a></li>
-                            <li><a class="dropdown-item" href="#burmese">Burmese</a></li>
-                            <li><a class="dropdown-item" href="#catalan">Catalan</a></li>
-                            <li><a class="dropdown-item" href="#chinese">Chinese</a></li>
-                            <li><a class="dropdown-item" href="#croatian">Croatian</a></li>
-                            <li><a class="dropdown-item" href="#czech">Czech</a></li>
-                            <li><a class="dropdown-item" href="#danish">Danish</a></li>
-                            <li><a class="dropdown-item" href="#dutch">Dutch</a></li>
-                            <li><a class="dropdown-item" href="#estonian">Estonian</a></li>
-                            <li><a class="dropdown-item" href="#filipino">Filipino</a></li>
-                            <li><a class="dropdown-item" href="#finnish">Finnish</a></li>
-                            <li><a class="dropdown-item" href="#french">French</a></li>
-                            <li><a class="dropdown-item" href="#georgian">Georgian</a></li>
-                            <li><a class="dropdown-item" href="#german">German</a></li>
-                            <li><a class="dropdown-item" href="#greek">Greek</a></li>
-                            <li><a class="dropdown-item" href="#hebrew">Hebrew</a></li>
-                            <li><a class="dropdown-item" href="#hindi">Hindi</a></li>
-                            <li><a class="dropdown-item" href="#hungarian">Hungarian</a></li>
-                            <li><a class="dropdown-item" href="#icelandic">Icelandic</a></li>
-                            <li><a class="dropdown-item" href="#indonesian">Indonesian</a></li>
-                            <li><a class="dropdown-item" href="#italian">Italian</a></li>
-                            <li><a class="dropdown-item" href="#japanese">Japanese</a></li>
-                            <li><a class="dropdown-item" href="#kazakh">Kazakh</a></li>
-                            <li><a class="dropdown-item" href="#korean">Korean</a></li>
-                            <li><a class="dropdown-item" href="#kyrgyz">Kyrgyz</a></li>
-                            <li><a class="dropdown-item" href="#latvian">Latvian</a></li>
-                            <li><a class="dropdown-item" href="#lithuanian">Lithuanian</a></li>
-                            <li><a class="dropdown-item" href="#macedonian">Macedonian</a></li>
-                            <li><a class="dropdown-item" href="#malay">Malay</a></li>
-                            <li><a class="dropdown-item" href="#malayalam">Malayalam</a></li>
-                            <li><a class="dropdown-item" href="#maltese">Maltese</a></li>
-                            <li><a class="dropdown-item" href="#mongolian">Mongolian</a></li>
-                            <li><a class="dropdown-item" href="#nepali">Nepali</a></li>
-                            <li><a class="dropdown-item" href="#norwegian">Norwegian</a></li>
-                            <li><a class="dropdown-item" href="#persian">Persian</a></li>
-                            <li><a class="dropdown-item" href="#polish">Polish</a></li>
-                            <li><a class="dropdown-item" href="#portuguese">Portuguese</a></li>
-                            <li><a class="dropdown-item" href="#romanian">Romanian</a></li>
-                            <li><a class="dropdown-item" href="#russian">Russian</a></li>
-                            <li><a class="dropdown-item" href="#serbian">Serbian</a></li>
-                            <li><a class="dropdown-item" href="#slovak">Slovak</a></li>
-                            <li><a class="dropdown-item" href="#slovenian">Slovenian</a></li>
-                            <li><a class="dropdown-item" href="#swahili">Swahili</a></li>
-                            <li><a class="dropdown-item" href="#swedish">Swedish</a></li>
-                            <li><a class="dropdown-item" href="#tamil">Tamil</a></li>
-                            <li><a class="dropdown-item" href="#telugu">Telugu</a></li>
-                            <li><a class="dropdown-item" href="#thai">Thai</a></li>
-                            <li><a class="dropdown-item" href="#turkish">Turkish</a></li>
-                            <li><a class="dropdown-item" href="#ukrainian">Ukrainian</a></li>
-                            <li><a class="dropdown-item" href="#urdu">Urdu</a></li>
-                            <li><a class="dropdown-item" href="#uzbek">Uzbek</a></li>
-                            <li><a class="dropdown-item" href="#vietnamese">Vietnamese</a></li>
-                            <li><a class="dropdown-item" href="#welsh">Welsh</a></li>
-                            <li><a class="dropdown-item" href="#yiddish">Yiddish</a></li>
-                            <li><a class="dropdown-item" href="#zulu">Zulu</a></li>
+                            <li><input type="text" placeholder="Search..." style="padding: 20px 16px;" id="myInput1" onkeyup="filterFunction1()"></li>
+                            <li><a class="dropdown-item" id="to_afrikaans" onclick="toLang(event)">Afrikaans</a></li>
+                            <li><a class="dropdown-item" id="to_albanian" onclick="toLang(event)">Albanian</a></li>
+                            <li><a class="dropdown-item" id="to_arabic" onclick="toLang(event)">Arabic</a></li>
+                            <li><a class="dropdown-item" id="to_armenian" onclick="toLang(event)">Armenian</a></li>
+                            <li><a class="dropdown-item" id="to_azerbaijani" onclick="toLang(event)">Azerbaijani</a></li>
+                            <li><a class="dropdown-item" id="to_belarusian" onclick="toLang(event)">Belarusian</a></li>
+                            <li><a class="dropdown-item" id="to_bengali" onclick="toLang(event)">Bengali</a></li>
+                            <li><a class="dropdown-item" id="to_bulgarian" onclick="toLang(event)">Bulgarian</a></li>
+                            <li><a class="dropdown-item" id="to_burmese" onclick="toLang(event)">Burmese</a></li>
+                            <li><a class="dropdown-item" id="to_catalan" onclick="toLang(event)">Catalan</a></li>
+                            <li><a class="dropdown-item" id="to_chinese" onclick="toLang(event)">Chinese</a></li>
+                            <li><a class="dropdown-item" id="to_croatian" onclick="toLang(event)">Croatian</a></li>
+                            <li><a class="dropdown-item" id="to_czech" onclick="toLang(event)">Czech</a></li>
+                            <li><a class="dropdown-item" id="to_danish" onclick="toLang(event)">Danish</a></li>
+                            <li><a class="dropdown-item" id="to_dutch" onclick="toLang(event)">Dutch</a></li>
+                            <li><a class="dropdown-item" id="to_estonian" onclick="toLang(event)">Estonian</a></li>
+                            <li><a class="dropdown-item" id="to_filipino" onclick="toLang(event)">Filipino</a></li>
+                            <li><a class="dropdown-item" id="to_finnish" onclick="toLang(event)">Finnish</a></li>
+                            <li><a class="dropdown-item" id="to_french" onclick="toLang(event)">French</a></li>
+                            <li><a class="dropdown-item" id="to_georgian" onclick="toLang(event)">Georgian</a></li>
+                            <li><a class="dropdown-item" id="to_german" onclick="toLang(event)">German</a></li>
+                            <li><a class="dropdown-item" id="to_greek" onclick="toLang(event)">Greek</a></li>
+                            <li><a class="dropdown-item" id="to_hebrew" onclick="toLang(event)">Hebrew</a></li>
+                            <li><a class="dropdown-item" id="to_hindi" onclick="toLang(event)">Hindi</a></li>
+                            <li><a class="dropdown-item" id="to_hungarian" onclick="toLang(event)">Hungarian</a></li>
+                            <li><a class="dropdown-item" id="to_icelandic" onclick="toLang(event)">Icelandic</a></li>
+                            <li><a class="dropdown-item" id="to_indonesian" onclick="toLang(event)">Indonesian</a></li>
+                            <li><a class="dropdown-item" id="to_italian" onclick="toLang(event)">Italian</a></li>
+                            <li><a class="dropdown-item" id="to_japanese" onclick="toLang(event)">Japanese</a></li>
+                            <li><a class="dropdown-item" id="to_kazakh" onclick="toLang(event)">Kazakh</a></li>
+                            <li><a class="dropdown-item" id="to_korean" onclick="toLang(event)">Korean</a></li>
+                            <li><a class="dropdown-item" id="to_kyrgyz" onclick="toLang(event)">Kyrgyz</a></li>
+                            <li><a class="dropdown-item" id="to_latvian" onclick="toLang(event)">Latvian</a></li>
+                            <li><a class="dropdown-item" id="to_lithuanian" onclick="toLang(event)">Lithuanian</a></li>
+                            <li><a class="dropdown-item" id="to_macedonian" onclick="toLang(event)">Macedonian</a></li>
+                            <li><a class="dropdown-item" id="to_malay" onclick="toLang(event)">Malay</a></li>
+                            <li><a class="dropdown-item" id="to_malayalam" onclick="toLang(event)">Malayalam</a></li>
+                            <li><a class="dropdown-item" id="to_maltese" onclick="toLang(event)">Maltese</a></li>
+                            <li><a class="dropdown-item" id="to_mongolian" onclick="toLang(event)">Mongolian</a></li>
+                            <li><a class="dropdown-item" id="to_nepali" onclick="toLang(event)">Nepali</a></li>
+                            <li><a class="dropdown-item" id="to_norwegian" onclick="toLang(event)">Norwegian</a></li>
+                            <li><a class="dropdown-item" id="to_persian" onclick="toLang(event)">Persian</a></li>
+                            <li><a class="dropdown-item" id="to_polish" onclick="toLang(event)">Polish</a></li>
+                            <li><a class="dropdown-item" id="to_portuguese" onclick="toLang(event)">Portuguese</a></li>
+                            <li><a class="dropdown-item" id="to_romanian" onclick="toLang(event)">Romanian</a></li>
+                            <li><a class="dropdown-item" id="to_russian" onclick="toLang(event)">Russian</a></li>
+                            <li><a class="dropdown-item" id="to_serbian" onclick="toLang(event)">Serbian</a></li>
+                            <li><a class="dropdown-item" id="to_slovak" onclick="toLang(event)">Slovak</a></li>
+                            <li><a class="dropdown-item" id="to_slovenian" onclick="toLang(event)">Slovenian</a></li>
+                            <li><a class="dropdown-item" id="to_swahili" onclick="toLang(event)">Swahili</a></li>
+                            <li><a class="dropdown-item" id="to_swedish" onclick="toLang(event)">Swedish</a></li>
+                            <li><a class="dropdown-item" id="to_tamil" onclick="toLang(event)">Tamil</a></li>
+                            <li><a class="dropdown-item" id="to_telugu" onclick="toLang(event)">Telugu</a></li>
+                            <li><a class="dropdown-item" id="to_thai" onclick="toLang(event)">Thai</a></li>
+                            <li><a class="dropdown-item" id="to_turkish" onclick="toLang(event)">Turkish</a></li>
+                            <li><a class="dropdown-item" id="to_ukrainian" onclick="toLang(event)">Ukrainian</a></li>
+                            <li><a class="dropdown-item" id="to_urdu" onclick="toLang(event)">Urdu</a></li>
+                            <li><a class="dropdown-item" id="to_uzbek" onclick="toLang(event)">Uzbek</a></li>
+                            <li><a class="dropdown-item" id="to_vietnamese" onclick="toLang(event)">Vietnamese</a></li>
+                            <li><a class="dropdown-item" id="to_welsh" onclick="toLang(event)">Welsh</a></li>
+                            <li><a class="dropdown-item" id="to_yiddish" onclick="toLang(event)">Yiddish</a></li>
+                            <li><a class="dropdown-item" id="to_zulu" onclick="toLang(event)">Zulu</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -227,7 +226,6 @@
                         <i class="fa fa-xmark" style="font-size: 2em;" type="submit" name="cancel"></i>
                     </button>
                 </form>
-
             </div>
         </div>
         <div class="row" id="buttoncontainer">
@@ -248,9 +246,9 @@
         const filesize = document.getElementById("filesize");
         filename.textContent = get_filename;
         filesize.textContent = get_filesize;
-
     </script>
-        <script src="{{ url_for('static', filename='styles/node_modules/bootstrap/dist/js/bootstrap.bundle.js') }}"></script>
 
+        <script src="{{ url_for('static', filename='styles/node_modules/bootstrap/dist/js/bootstrap.bundle.js') }}">
+    </script>
 </body>
 </html>

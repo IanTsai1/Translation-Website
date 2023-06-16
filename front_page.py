@@ -1,20 +1,21 @@
 from flask import*
 from before_file import app_before_file
 from after_file import app_after_file
+from translating_file import app_translating_file
 from backend import translate_texts
-import time
-
 #from langdetect import detect
 
 app_front_page = Blueprint('front_page',__name__)
 app_front_page.register_blueprint(app_before_file)
 app_front_page.register_blueprint(app_after_file)
+app_front_page.register_blueprint(app_translating_file)
 
 data = {}
 
 #default language
 data["original_Lang"] = "detected_language"
 data["translatedTo_Lang"] = "spanish"
+data["translated_text"] = "Translation"
 
 code_to_language = {
     "aa": "Afar",
@@ -207,26 +208,26 @@ def next_path():
 
 @app_front_page.route("/language", methods=['GET','POST'])
 def language():
-    language = str(request.json.get('lang'))
-    if("from" in language):
-        data["original_Lang"] = language[5:]
-    else:
-        data["translatedTo_Lang"] = language[3:]
+    from_language = str(request.json.get('fromLang'))
+    to_language = str(request.json.get('toLang'))
+    data["original_Lang"] = from_language[5:]
+    data["translatedTo_Lang"] = to_language[3:]
     return render_template('site.html')
 
-
-@app_front_page.route("/before_translate")
+@app_front_page.route("/translating/text", methods=['GET','POST'])
 def getBeforeTranslate():
-    text = str(request.form.get("beforeTranslateText"))
-    print(text)
-    translated_text = translate_texts.translate_text(text, data.get("original_Lang"), data.get("translatedTo_Lang"))
-    print(translated_text)
-    return translated_text
+     if request.method == 'POST':
+        text = str(request.get_json().get("beforeTranslateText"))
+        translated_text = translate_texts.translate_text(text, data.get("original_Lang"), data.get("translatedTo_Lang"))
+        data["translated_text"] = translated_text
+        print(translated_text)
+        return render_template("site.html", update="True")
+     return render_template("site.html")
 
+@app_front_page.route("/datum")
+def datum():
+    return data.get("translated_text")
 
-@app_front_page.route("/translated")
-def showTranslation(translated_text):
-    return render_template("site.html",translated=translated_text)
 
 '''
 @app_front_page.route("/detected-language")

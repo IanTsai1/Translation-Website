@@ -6,7 +6,7 @@ document.addEventListener('click', function (event) {
   });
 
 function filterFunction() {
-    var input, filter, ul, li, a, i;
+    var input, filter, a, i;
     input = document.getElementById("myInput");
     filter = input.value.toUpperCase();
     div = document.getElementById("myDropdown");
@@ -47,7 +47,7 @@ function filterFunction1() {
 
 document.getElementById("file_name").onclick = function () {
     window.location.href = "after_file.html";
-};
+}
 
 function handleButtonClick() {
     window.location.href = "before_file.html";
@@ -66,6 +66,24 @@ function handleFileSelect(event) {
     else{
       localStorage.setItem("selectedFileSize", Math.round(file.size/1000) + " KB");
     }
+    fetch('/translating-file', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({filename:file.name})
+    })
+      .then(response => {
+        if (response.ok) {
+          console.log('From language selection sent successfully!');
+          // Do something with the response if needed
+        } else {
+          console.error('Error sending language selection.');
+        }
+      })
+      .catch(error => {
+        console.error('Error sending language selection:', error);
+      });
 
   }
 
@@ -77,7 +95,7 @@ function text_file(event){
 }
 
 
-function selectLang(event) {
+function fromLang(event) {
   //let translationType;
   let selectedLanguage = String(event.target.id);
   // Make a fetch request to send the selected language to the server
@@ -86,11 +104,35 @@ function selectLang(event) {
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({lang:selectedLanguage})
+    body: JSON.stringify({fromLang:selectedLanguage})
   })
     .then(response => {
       if (response.ok) {
-        console.log('Language selection sent successfully!');
+        console.log('From language selection sent successfully!');
+        // Do something with the response if needed
+      } else {
+        console.error('Error sending language selection.');
+      }
+    })
+    .catch(error => {
+      console.error('Error sending language selection:', error);
+    });
+}
+
+function toLang(event) {
+  //let translationType;
+  let selectedLanguage = String(event.target.id);
+  // Make a fetch request to send the selected language to the server
+  fetch('/language', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({toLang:selectedLanguage})
+  })
+    .then(response => {
+      if (response.ok) {
+        console.log('To language selection sent successfully!');
         // Do something with the response if needed
       } else {
         console.error('Error sending language selection.');
@@ -105,10 +147,8 @@ function getBeforeTranslate(event){
   var textarea = document.getElementById("before_translate");
   var before_trans = textarea.value;
 
-  var after_trans = document.getElementById("after_translate1");
-
   // Make a fetch request to send the selected language to the server
-  fetch('/before_translate', {
+  fetch('/translating/text', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -126,41 +166,19 @@ function getBeforeTranslate(event){
     .catch(error => {
       console.error('Error sending text:', error);
     });
-
-    fetch('/before_translate')
-    .then(response => response.text())
-    .then(text => (after_trans.innerHTML = text));
 }
 
-/*
-function getText(event){
-  var textarea = document.getElementById("from_detected_language");
-  var text = textarea.value;
-  //const text = event.target.value;
+function translated_updater() {
+  $.get('/datum', function(data) {
+      $("#after_translate").text(data);
+  });
+};
 
-  fetch('/before_translate', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({beforeTranslateText:text})
-    })
-    .then(response => {
-      if (response.ok) {
-        console.log('Before translated text sent successfully!');
-        // Do something with the response if needed
-      } else {
-        console.error('Error sending text.');
-      }
-    })
-    .catch(error => {
-      console.error('Error sending text:', error);
+function percent_updater() {
+    $.get('/data', function(data) {
+        $("#percent-bar").css("width", data + "%").text(data + "%");
     });
-    fetch('/detected-language')
-    .then(response => response.text())
-    .then(text => (textarea.innerHTML = text));
-}
-*/
+  };
 
 
 

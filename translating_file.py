@@ -11,23 +11,12 @@ data = {}
 #default language
 data["fromLang"] = "detected_language"
 data["toLang"] = "spanish"
-data["translated_text"] = "Translation" #updated after translation ends
+data["translated_file"] = "Translation" #updated after translation ends
 data["percent"] = 0
 
 
-'''
-grab essentials
-start thread
-call translate text
-    while iteraitng call get_percent() from this file after every iteration
-update % using previous code
-update translate text when everything finishes
-'''
-
-
-
 @app_translating_file.route("/translating-file")
-def grabbing_essential():
+def updating_essential():
     from_language = str(request.json.get('fromLang'))
     to_language = str(request.json.get('toLang'))
 
@@ -43,6 +32,7 @@ def translate(from_lang, to_lang, filename):
         translated = translate_pdf.translate(from_lang, to_lang, filename)
     elif filetype == "txt":
         translated = translate_txtfile.translate(from_lang, to_lang, filename)
+    data["translated_text"] = translated
     return translated
 
 def get_percent(value):
@@ -50,11 +40,17 @@ def get_percent(value):
 
 @app_translating_file.route("/translating/file")
 def index():
-    grabbing_essential() #updating values
+    updating_essential()
     thread = threading.Thread(target=translate, args=(data.get("fromLang"),data.get("toLang"),data.get("filename")))
     thread.start()
     return render_template("file_translated.html") #when it goes to new page, translate() will still be running
 
-@app.route('/data')
-def data():
+@app_translating_file.route('/percent')
+def percent():
     return str(data.get("percent"))
+
+@app_translating_file.route('/translated/file')
+def translated_file():
+    return str(data.get("translated_file"))
+
+

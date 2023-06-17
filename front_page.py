@@ -214,7 +214,7 @@ def language():
     data["translatedTo_Lang"] = to_language[3:]
     return render_template('site.html')
 
-@app_front_page.route("/translating/text", methods=['GET','POST'])
+@app_front_page.route("/translated/text", methods=['GET','POST'])
 def getBeforeTranslate():
      if request.method == 'POST':
         text = str(request.get_json().get("beforeTranslateText"))
@@ -224,7 +224,7 @@ def getBeforeTranslate():
         return render_template("site.html", update="True")
      return render_template("site.html")
 
-@app_front_page.route("/datum")
+@app_front_page.route("/finish-translate")
 def datum():
     return data.get("translated_text")
 

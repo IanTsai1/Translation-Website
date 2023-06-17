@@ -169,16 +169,24 @@ function getBeforeTranslate(event){
 }
 
 function translated_updater() {
-  $.get('/datum', function(data) {
+  $.get('/translated/text', function(data) {
       $("#after_translate").text(data);
   });
 };
 
 function percent_updater() {
-    $.get('/data', function(data) {
+    $.get('/percent', function(data) {
         $("#percent-bar").css("width", data + "%").text(data + "%");
     });
   };
+
+function translated_file_updater() {
+    $.get('/translated/file', function(data) {
+        $("#translated").text(data);
+    });
+  };
+
+
 
 
 

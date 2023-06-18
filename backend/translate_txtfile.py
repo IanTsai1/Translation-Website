@@ -1,8 +1,9 @@
 import openai
 import os
-from translating_file import get_percent
+#from translating_file import get_percent
 import tiktoken
 from textwrap import wrap
+
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
@@ -37,9 +38,11 @@ def token_valid(arr):
 
 
 def translate(from_lang, to_lang, filename):
+    from translating_file import get_percent
     translates = []
     count = 1
-    with open(filename) as new_file:
+    file_path = os.path.join("downloaded_files", filename)
+    with open(file_path) as new_file: #need import os to change path to get file
         str = new_file.read()
     texts = token_valid([str])
     length = len(texts)

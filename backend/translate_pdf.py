@@ -4,7 +4,8 @@ from PyPDF3 import PdfFileReader
 import tiktoken
 from textwrap import wrap
 import time
-from translating_file import get_percent
+#from translating_file import get_percent
+
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
@@ -91,15 +92,17 @@ def translating(page,fromLang,toLang,count):
 
 
 def translate(from_lang, to_lang, filename):
+    from translating_file import get_percent
     count = 1
-    page_length = pdf_reader(filename)
+    file_path = os.path.join("downloaded_files", filename)
+    page_length = pdf_reader(file_path)
     pages = page_length[0]
     length = page_length[1]
     pages = token_valid(pages)
 
     for i in pages:
-        i[1] = translating(i,from_lang,to_lang,count)
-        get_percent(percent(count,length))
+        i[1] = translating(i,from_lang,to_lang,count) #internal
+        get_percent(percent(count,length)) #calling get_percent from translating_file
         count += 1
-        
+
     return concatenate_arr(pages)

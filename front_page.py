@@ -220,11 +220,10 @@ def getBeforeTranslate():
         text = str(request.get_json().get("beforeTranslateText"))
         translated_text = translate_texts.translate_text(text, data.get("original_Lang"), data.get("translatedTo_Lang"))
         data["translated_text"] = translated_text
-        print(translated_text)
-        return render_template("site.html", update="True")
+        return render_template("site.html")
      return render_template("site.html")
 
-@app_front_page.route("/finish-translate")
+@app_front_page.route("/get/translated/text")
 def datum():
     return data.get("translated_text")
 

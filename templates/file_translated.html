@@ -10,7 +10,7 @@
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script src="{{ url_for('static', filename='scripts/script.js') }}"></script>
     <script type="text/javascript">
-        setInterval(percent_updater, 1000);  
+        setInterval(percent_updater, 1000);
         setInterval(translated_file_updater,1000);
     </script>
 </head>
@@ -216,7 +216,7 @@
         <div class="row" id="translated-row">
             <form>
                 <div class="form-group">
-                    <textarea class="form-control" placeholder="Translation" disabled="disabled" id="translated" rows="9"></textarea>
+                    <textarea class="form-control" placeholder="Translation" disabled="disabled" id="translated_file" rows="9"></textarea>
                 </div>
             </form>
         </div>
@@ -229,6 +229,7 @@
             </div>
         </div>
     </div>
+    <!--
     <script>
         const get_filename = localStorage.getItem("selectedFileName");
         const filename = document.getElementById("filename");
@@ -236,7 +237,7 @@
         const filesize = document.getElementById("filesize");
         filename.textContent = get_filename;
         filesize.textContent = get_filesize;
-    </script>
+    </script>-->
         <script src="{{ url_for('static', filename='styles/node_modules/bootstrap/dist/js/bootstrap.bundle.js') }}">
     </script>
 </body>

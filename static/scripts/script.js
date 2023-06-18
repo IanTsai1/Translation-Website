@@ -66,26 +66,7 @@ function handleFileSelect(event) {
     else{
       localStorage.setItem("selectedFileSize", Math.round(file.size/1000) + " KB");
     }
-    fetch('/translating-file', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({filename:file.name})
-    })
-      .then(response => {
-        if (response.ok) {
-          console.log('From language selection sent successfully!');
-          // Do something with the response if needed
-        } else {
-          console.error('Error sending language selection.');
-        }
-      })
-      .catch(error => {
-        console.error('Error sending language selection:', error);
-      });
-
-  }
+}
 
 function front_file(event){
     window.location.href = 'before_file.html';
@@ -148,7 +129,7 @@ function getBeforeTranslate(event){
   var before_trans = textarea.value;
 
   // Make a fetch request to send the selected language to the server
-  fetch('/translating/text', {
+  fetch('/translated/text', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -169,7 +150,7 @@ function getBeforeTranslate(event){
 }
 
 function translated_updater() {
-  $.get('/translated/text', function(data) {
+  $.get('/get/translated/text', function(data) {
       $("#after_translate").text(data);
   });
 };
@@ -182,12 +163,32 @@ function percent_updater() {
 
 function translated_file_updater() {
     $.get('/translated/file', function(data) {
-        $("#translated").text(data);
+        $("#translated_file").text(data);
     });
   };
 
-
-
+function pass_filename(){
+  var filename = document.getElementById("filename");
+  var filename = filename.innerText;
+  fetch('/translating-file', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({filename: filename})
+  })
+    .then(response => {
+      if (response.ok) {
+        console.log('Filename sent successfully!');
+        // Do something with the response if needed
+      } else {
+        console.error('Error sending filename.');
+      }
+    })
+    .catch(error => {
+      console.error('Error sending filename:', error);
+    });
+}
 
 
 

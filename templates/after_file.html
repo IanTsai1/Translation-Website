@@ -232,9 +232,8 @@
             <div class="col-md-1"></div>
             <div class="col"></div>
             <div class="col-md-1">
-                <!--<button type="submit" class="btn btn-primary">Translate</button>-->
                 <form method="post" action={{url_for("after_file.translate")}} style="transform:translateX(-33%);">
-                    <button type="submit" class="btn btn-primary">Translate</button>
+                    <button type="submit" class="btn btn-primary" onclick="pass_filename(event); this.form.submit();">Translate</button>
                 </form>
             </div>
         </div>

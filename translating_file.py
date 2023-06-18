@@ -1,5 +1,5 @@
 from flask import*
-from backend import translate_pdf, translate_txtfile
+#from backend import translate_pdf, translate_txtfile(in translate())
 import threading
 
 
@@ -15,36 +15,43 @@ data["translated_file"] = "Translation" #updated after translation ends
 data["percent"] = 0
 
 
-@app_translating_file.route("/translating-file")
+@app_translating_file.route("/translating-file", methods=['GET','POST'])
 def updating_essential():
-    from_language = str(request.json.get('fromLang'))
-    to_language = str(request.json.get('toLang'))
-
-    data["fromLang"] = from_language[5:]
-    data["toLang"] = to_language[3:]
+    print("start of updating filename")
     data["filename"] = str(request.json.get('filename'))
+    print("end of updating filename")
+    return render_template("file_translated.html")
 
 
 #need a fetch to post data from server to user
 def translate(from_lang, to_lang, filename):
+    print("start of translate")
+    from backend import translate_pdf, translate_txtfile
     filetype = data.get("filename")[len(data.get("filename"))-3:]
     if filetype == "pdf":
-        translated = translate_pdf.translate(from_lang, to_lang, filename)
+        translated = translate_pdf.translate(from_lang, to_lang, filename) #calling translate_pdf method
+        data["translated_file"] = translated
+        return translated
     elif filetype == "txt":
-        translated = translate_txtfile.translate(from_lang, to_lang, filename)
-    data["translated_text"] = translated
-    return translated
+        translated = translate_txtfile.translate(from_lang, to_lang, filename) #calling translate_txt method
+        data["translated_file"] = translated
+        return translated
+
+
 
 def get_percent(value):
     data["percent"] = value
 
 @app_translating_file.route("/translating/file")
 def index():
-    updating_essential()
+    print("Filename:", data.get("filename"))
     thread = threading.Thread(target=translate, args=(data.get("fromLang"),data.get("toLang"),data.get("filename")))
     thread.start()
+    print("start of threading")
     return render_template("file_translated.html") #when it goes to new page, translate() will still be running
 
+
+#These two are for js to fetch updated % and translated value
 @app_translating_file.route('/percent')
 def percent():
     return str(data.get("percent"))
@@ -54,3 +61,32 @@ def translated_file():
     return str(data.get("translated_file"))
 
 
+'''
+Translating_file
+    External calls:
+        pdf.translate()
+        txt.translate()
+
+    Internal methods:
+        get_percent()
+
+translate pdf
+    External calls:
+        get_percent()
+
+    Internal methods:
+        translate()
+
+translate txt
+    External calls:
+        get_percent()
+
+    Internal methods:
+        translate()
+
+
+
+
+
+
+'''

@@ -29,16 +29,3 @@ def translate_text(text, language_from, language_to):
         )
         return response['choices'][0]['message']['content']
 
-
-'''
-Language From
-    if(language_from=="detected_language"){
-        do normal shit
-    }
-    else{
-        prompt = f"Translate: [{text}] from {language_from} to {language_to}. Only include the translated text."
-
-    }
-
-
-'''

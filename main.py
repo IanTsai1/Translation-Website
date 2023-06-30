@@ -1,8 +1,8 @@
 from flask import*
-from front_page import app_front_page
-from before_file import app_before_file
-from after_file import app_after_file
-from translating_file import app_translating_file
+from app.front_page import app_front_page
+from app.before_file import app_before_file
+from app.after_file import app_after_file
+from app.translating_file import app_translating_file
 
 
 main_app = Flask(__name__)

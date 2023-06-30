@@ -38,7 +38,7 @@ def token_valid(arr):
 
 
 def translate(from_lang, to_lang, filename):
-    from translating_file import get_percent
+    from app.translating_file import get_percent
     translates = []
     count = 1
     file_path = os.path.join("downloaded_files", filename)

@@ -9,8 +9,9 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
     <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
     <script src="{{ url_for('static', filename='scripts/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/recording.js') }}"></script>
     <script>
-        setInterval(translated_updater, 1000); //change this to call upon function in the future
+        //setInterval(translated_updater, 1000); //change this to call upon function in the future
                                     //there's a bug tht doesn't allow me do this now
     </script>
 </head>
@@ -71,7 +72,8 @@
                             <li><a class="dropdown-item" id="from_bulgarian" onclick="fromLang(event)">Bulgarian</a></li>
                             <li><a class="dropdown-item" id="from_burmese" onclick="fromLang(event)">Burmese</a></li>
                             <li><a class="dropdown-item" id="from_catalan" onclick="fromLang(event)">Catalan</a></li>
-                            <li><a class="dropdown-item" id="from_chinese" onclick="fromLang(event)">Chinese</a></li>
+                            <li><a class="dropdown-item" id="from_simplified_chinese" onclick="fromLang(event)">Chinese(Simplified)</a></li>
+                            <li><a class="dropdown-item" id="from_traditional_chinese" onclick="fromLang(event)">Chinese(Traditional)</a></li>
                             <li><a class="dropdown-item" id="from_croatian" onclick="fromLang(event)">Croatian</a></li>
                             <li><a class="dropdown-item" id="from_czech" onclick="fromLang(event)">Czech</a></li>
                             <li><a class="dropdown-item" id="from_danish" onclick="fromLang(event)">Danish</a></li>
@@ -141,7 +143,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle language-bar" id="dropdownMenuLink1" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">More</a>
                         <ul id="myDropdown1" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <li><input type="text" placeholder="Search..." style="padding: 20px 16px;" id="myInput1" onkeyup="filterFunction1()"></li>
+                            <li><input type="text" placeholder="Search..." style="padding: 20px 16px;" id="myInput1" onkeyup="filterFunction1()" autocomplete="off"></li>
                             <li><a class="dropdown-item" id="to_afrikaans" onclick="toLang(event)">Afrikaans</a></li>
                             <li><a class="dropdown-item" id="to_albanian" onclick="toLang(event)">Albanian</a></li>
                             <li><a class="dropdown-item" id="to_arabic" onclick="toLang(event)">Arabic</a></li>
@@ -152,7 +154,8 @@
                             <li><a class="dropdown-item" id="to_bulgarian" onclick="toLang(event)">Bulgarian</a></li>
                             <li><a class="dropdown-item" id="to_burmese" onclick="toLang(event)">Burmese</a></li>
                             <li><a class="dropdown-item" id="to_catalan" onclick="toLang(event)">Catalan</a></li>
-                            <li><a class="dropdown-item" id="to_chinese" onclick="toLang(event)">Chinese</a></li>
+                            <li><a class="dropdown-item" id="to_simplified_chinese" onclick="toLang(event)">Chinese(Simplified)</a></li>
+                            <li><a class="dropdown-item" id="to_traditional_chinese" onclick="toLang(event)">Chinese(Traditional)</a></li>
                             <li><a class="dropdown-item" id="to_croatian" onclick="toLang(event)">Croatian</a></li>
                             <li><a class="dropdown-item" id="to_czech" onclick="toLang(event)">Czech</a></li>
                             <li><a class="dropdown-item" id="to_danish" onclick="toLang(event)">Danish</a></li>
@@ -215,20 +218,27 @@
                     <div class="form-group">
                         <textarea class="form-control" placeholder="Type your text here ..." id="before_translate" rows="10"></textarea>
                     </div>
+                    <button type="submit" class="icon-button record" data-toggle="tooltip" data-placement="bottom" title="Translate by voice (recording start button)">
+                        <i class="fas fa-microphone fa-2xl" id="start_mic"></i>
+                    </button>
+                    <button type="submit"  class="icon-button stop" data-toggle="tooltip" data-placement="bottom" title="Recording end button">
+                        <i class="fas fa-stop fa-2xl" id="end_mic"></i>
+                    </button>
                 </form>
             </div>
             <div class="col">
                 <form>
                     <div class="form-group">
-                        <textarea class="form-control" placeholder="Translation" disabled="disabled" id="after_translate" rows="10"></textarea>
+                        <textarea class="form-control" placeholder="Translation" disabled="disabled" id="after_translate" rows="10">
+                        </textarea>
                     </div>
                 </form>
             </div>
         </div>
-        <div class="row" style="transform: translateX(41.5%)">
+        <div class="row" style="transform: translateX(41.5%); position: relative; top: -20px;">
             <h5></h5>
             <form method="post" enctype="multipart/form-data">
-                <div class="col"> <!--onclick="getBeforeTranslate(event)"-->
+                <div class="col">
                     <button type="submit" class="btn btn-primary" id="text_translate" onclick="getBeforeTranslate(event)">Translate</button>
                 </div>
             </form>

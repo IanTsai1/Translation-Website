@@ -20,13 +20,22 @@ function filterFunction() {
         }
     }
 }
-
+/*
 document.addEventListener1('click', function (event) {
     var dropdown = document.querySelector('.dropdown-menu1');
     if (!event.target.closest('.dropdown1')) {
       dropdown.classList.remove('show');
     }
   });
+
+  document.getElementById("file_name").onclick = function () {
+    window.location.href = "after_file.html";
+}
+
+function handleButtonClick() {
+    window.location.href = "before_file.html";
+}
+  */
 
 function filterFunction1() {
     var input, filter, ul, li, a, i;
@@ -45,13 +54,6 @@ function filterFunction1() {
 }
 
 
-document.getElementById("file_name").onclick = function () {
-    window.location.href = "after_file.html";
-}
-
-function handleButtonClick() {
-    window.location.href = "before_file.html";
-}
 
 function handleFileSelect(event) {
     const file = event.target.files[0]; // Get the selected file
@@ -80,7 +82,7 @@ function fromLang(event) {
   //let translationType;
   let selectedLanguage = String(event.target.id);
   // Make a fetch request to send the selected language to the server
-  fetch('/language', {
+  fetch('/fromlanguage', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -104,7 +106,7 @@ function toLang(event) {
   //let translationType;
   let selectedLanguage = String(event.target.id);
   // Make a fetch request to send the selected language to the server
-  fetch('/language', {
+  fetch('/tolanguage', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

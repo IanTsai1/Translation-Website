@@ -69,7 +69,8 @@
                             <li><a class="dropdown-item" id="from_bulgarian" onclick="fromLang(event)">Bulgarian</a></li>
                             <li><a class="dropdown-item" id="from_burmese" onclick="fromLang(event)">Burmese</a></li>
                             <li><a class="dropdown-item" id="from_catalan" onclick="fromLang(event)">Catalan</a></li>
-                            <li><a class="dropdown-item" id="from_chinese" onclick="fromLang(event)">Chinese</a></li>
+                            <li><a class="dropdown-item" id="from_simplified_chinese" onclick="fromLang(event)">Chinese(Simplified)</a></li>
+                            <li><a class="dropdown-item" id="from_traditional_chinese" onclick="fromLang(event)">Chinese(Traditional)</a></li>
                             <li><a class="dropdown-item" id="from_croatian" onclick="fromLang(event)">Croatian</a></li>
                             <li><a class="dropdown-item" id="from_czech" onclick="fromLang(event)">Czech</a></li>
                             <li><a class="dropdown-item" id="from_danish" onclick="fromLang(event)">Danish</a></li>
@@ -139,7 +140,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle language-bar" id="dropdownMenuLink1" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">More</a>
                         <ul id="myDropdown1" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <li><input type="text" placeholder="Search..." style="padding: 20px 16px;" id="myInput1" onkeyup="filterFunction1()"></li>
+                            <li><input type="text" placeholder="Search..." style="padding: 20px 16px;" id="myInput1" onkeyup="filterFunction1()" autocomplete="off"></li>
                             <li><a class="dropdown-item" id="to_afrikaans" onclick="toLang(event)">Afrikaans</a></li>
                             <li><a class="dropdown-item" id="to_albanian" onclick="toLang(event)">Albanian</a></li>
                             <li><a class="dropdown-item" id="to_arabic" onclick="toLang(event)">Arabic</a></li>
@@ -150,7 +151,8 @@
                             <li><a class="dropdown-item" id="to_bulgarian" onclick="toLang(event)">Bulgarian</a></li>
                             <li><a class="dropdown-item" id="to_burmese" onclick="toLang(event)">Burmese</a></li>
                             <li><a class="dropdown-item" id="to_catalan" onclick="toLang(event)">Catalan</a></li>
-                            <li><a class="dropdown-item" id="to_chinese" onclick="toLang(event)">Chinese</a></li>
+                            <li><a class="dropdown-item" id="to_simplified_chinese" onclick="toLang(event)">Chinese(Simplified)</a></li>
+                            <li><a class="dropdown-item" id="to_traditional_chinese" onclick="toLang(event)">Chinese(Traditional)</a></li>
                             <li><a class="dropdown-item" id="to_croatian" onclick="toLang(event)">Croatian</a></li>
                             <li><a class="dropdown-item" id="to_czech" onclick="toLang(event)">Czech</a></li>
                             <li><a class="dropdown-item" id="to_danish" onclick="toLang(event)">Danish</a></li>
@@ -214,10 +216,10 @@
                 <p></p>
                 <p></p>
                 <h1 class="display-6" style="font-weight: 450; font-size:28px;">Choose a document</h1>
-                <p><small>Upload a .txt or .pdf</small></p>
+                <p><small>Upload a .txt, .pdf, .mp3, .mp4</small></p>
                 <form method="post" action={{url_for("before_file.next_path")}} enctype = "multipart/form-data">
                     <button class="btn btn-primary btn btn-file"> <!--handleFileSelect(event)-->
-                        Browse your computer <input type="file" id="file_name" accept=".txt,.pdf" onchange="handleFileSelect(event);this.form.submit();" name="upload_complete">
+                        Browse your computer <input type="file" id="file_name" accept=".txt,.pdf, .mp3, .mp4" onchange="handleFileSelect(event);this.form.submit();" name="upload_complete">
                     </button>
                 </form>
             </div>

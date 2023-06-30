@@ -3,7 +3,7 @@ import os
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
-def translate_text(text, language_from, language_to):
+def translate(text, language_from, language_to):
     history = [
         {"role": "system", "content": "You are a translator."},
         ]

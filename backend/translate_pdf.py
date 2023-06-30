@@ -92,7 +92,7 @@ def translating(page,fromLang,toLang,count):
 
 
 def translate(from_lang, to_lang, filename):
-    from translating_file import get_percent
+    from app.translating_file import get_percent
     count = 1
     file_path = os.path.join("downloaded_files", filename)
     page_length = pdf_reader(file_path)

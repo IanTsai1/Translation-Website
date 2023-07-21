@@ -25,11 +25,11 @@ def concatenate_arrstr(arr):
      return ' '.join(arr)
 
 #concatenate all string for 2d array
-def concatenate_arr(arr):
-    str = ""
-    for i in arr:
-        str = str + ''.join(i[1]) + ' '
-    return str
+    def concatenate_arr(arr):
+        str = ""
+        for i in arr:
+            str = str + ''.join(i[1]) + ' '
+        return str
 
 #["hello im ian im having a bad day"]
 def token_valid(arr):
